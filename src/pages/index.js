@@ -6,7 +6,8 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Helmet } from "react-helmet"
 import Home from "../components/home/Home"
-import Hero from "../components/Hero/Hero"
+import Hero from "../components/hero/Hero"
+import Services from "../components/services/Services"
 
 const HomePage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -18,6 +19,7 @@ const HomePage = ({ data, location }) => {
       </Helmet>
       <Hero />
       <Home />
+      <Services />
     </Layout>
   )
 }

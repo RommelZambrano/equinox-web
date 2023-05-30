@@ -4,34 +4,40 @@ import styled from "styled-components"
 import { FaBars } from "react-icons/fa"
 import { pages } from "../../data/MenuData"
 import { Button } from "../Button"
+import logo from "../../images/equinox-logo.png"
 
 const Navbar = () => {
   return (
     <Nav>
-      <NavLink to="/">Equinox</NavLink>
-            <Bars />
+      <NavLink to="/">
+        <Logo src={logo} alt="Equinox" />
+      </NavLink>
+      <Bars />
       {/* <NavMenu> */}
-          <NavMenu>
-            {pages.map((item, index) => (
-              <NavLink to={item.link} key={index}>
-                {item.title}
-              </NavLink>
-            ))}
+      <NavMenu>
+        {pages.map((item, index) => (
+          <NavLink to={item.link} key={index}>
+            {item.title}
+          </NavLink>
+        ))}
       </NavMenu>
-            <NavBtn>
-              <Button>Contact Us</Button>
-            </NavBtn>
-      </Nav>
+      <NavBtn>
+        <Button primary="true" round="true">
+          Contactanos
+        </Button>
+      </NavBtn>
+    </Nav>
   )
 }
 
 export default Navbar
 
 const Nav = styled.nav`
-  background: red;
+  background: transparent;
   height: 80px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.5rem calc((100vw - 1300px) / 2);
   z-index: 100;
   position: relative;
@@ -45,10 +51,10 @@ const NavLink = styled(Link)`
   padding: 0 1rem;
   height: 100%auto;
   cursor: pointer;
+ 
 
   &:hover {
-    color: #1abc9c;
-    transform: rotate(90deg);
+    color: #CD853F;
   }
 `
 const Bars = styled(FaBars)`
@@ -84,3 +90,9 @@ const NavBtn = styled.div`
     display: none;
   }
 `
+const Logo = styled.img`
+  width: 115px; // Ajusta este valor según tus necesidades
+  height: auto;
+  flex-shrink: 0; // Esto evitará que el logo se encoja
+`;
+
