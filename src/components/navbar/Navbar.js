@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { FaBars } from "react-icons/fa"
@@ -6,9 +6,9 @@ import { pages } from "../../data/MenuData"
 import { Button } from "../Button"
 import logo from "../../images/equinox-logo.png"
 
-const Navbar = () => {
+const Navbar = ({ pathname }) => {
   return (
-    <Nav>
+    <Nav pathname={pathname}>
       <NavLink to="/">
         <Logo src={logo} alt="Equinox" />
       </NavLink>
@@ -33,7 +33,7 @@ const Navbar = () => {
 export default Navbar
 
 const Nav = styled.nav`
-  background: transparent;
+  background: ${({ pathname }) => (pathname === "/" ? "transparent" : "rgba(0, 0, 0, 0.7)")};
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -51,10 +51,9 @@ const NavLink = styled(Link)`
   padding: 0 1rem;
   height: 100%auto;
   cursor: pointer;
- 
 
   &:hover {
-    color: #CD853F;
+    color: #cd853f;
   }
 `
 const Bars = styled(FaBars)`
@@ -94,5 +93,4 @@ const Logo = styled.img`
   width: 115px; // Ajusta este valor según tus necesidades
   height: auto;
   flex-shrink: 0; // Esto evitará que el logo se encoja
-`;
-
+`

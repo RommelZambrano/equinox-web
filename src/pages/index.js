@@ -7,7 +7,6 @@ import Seo from "../components/seo"
 import { Helmet } from "react-helmet"
 import Home from "../components/home/Home"
 import Hero from "../components/hero/Hero"
-import Services from "../components/services/Services"
 
 const HomePage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -18,8 +17,8 @@ const HomePage = ({ data, location }) => {
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </Helmet>
       <Hero />
-      <Home />
-      <Services />
+      {/* <Home /> */}
+      {/* <Services /> */}
     </Layout>
   )
 }

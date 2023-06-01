@@ -1,8 +1,7 @@
 import React from "react"
-import { Link } from "gatsby"
 import styled from "styled-components"
 import { Button } from "../Button"
-import Video from "../../images/Equinox.mp4"
+import Video from "../../video/Equinox.mp4"
 
 const Hero = () => {
   return (
