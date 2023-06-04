@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { FaInstagram, FaFacebook, FaLinkedin } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
   const year = new Date().getFullYear()
@@ -16,14 +16,15 @@ const Footer = () => {
       <FooterSection>
         <FooterTitle>Contactanos</FooterTitle>
         <FooterLink
-          href="tel:+593234569789"
+         href="https://api.whatsapp.com/send?phone=593961333249&text=Hola,%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20sus%20servicios."         
           target="_blank"
           rel="noopener noreferrer"
         >
-          +593 234-569-789
+          <FaWhatsapp />{" "}
+          (+593) 96 133 3249
         </FooterLink>
       </FooterSection>
-      <FooterSection style={{ alignItems: "flex-start" }}>
+      <FooterSection>
         <FooterTitle>Redes sociales</FooterTitle>
         <FooterLink
           href="https://www.instagram.com/equinoxservicesec/"
@@ -81,7 +82,7 @@ const FooterSection = styled.div`
 const FooterTitle = styled.h2`
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: #f26a2e;
+  color: #EFA23A;
 `
 
 const FooterDesc = styled.p`
@@ -91,15 +92,16 @@ const FooterDesc = styled.p`
 `
 
 const FooterLink = styled.a`
-  text-decoration: none;
-  color: #fff;
-  margin-bottom: 0.5rem;
+text-decoration: none;
+color: #fff;
+margin-bottom: 0.5rem;
 
-  &:hover {
-    color: #f26a2e;
-    transition: 0.3s ease-out;
-  }
-`
+&:hover {
+  color: #72ABFF;
+  transition: 0.3s ease-out;
+}
+`;
+  
 
 const Copyright = styled.p`
   color: #fff;

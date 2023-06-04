@@ -7,7 +7,7 @@ const ContactPage = () => {
   return (
     <Layout>
       <Seo
-        title="Página de servicios"
+        title="Servicios"
         description="Nuestros servicios son los mejores."
       />
       <ContactForm />

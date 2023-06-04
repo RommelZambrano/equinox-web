@@ -22,7 +22,7 @@ const Navbar = ({ pathname }) => {
         ))}
       </NavMenu>
       <NavBtn>
-        <Button primary="true" round="true">
+        <Button primary="true" round="true" to="/contact">
           Contactanos
         </Button>
       </NavBtn>
@@ -53,7 +53,9 @@ const NavLink = styled(Link)`
   cursor: pointer;
 
   &:hover {
-    color: #cd853f;
+    color: #EFA23A;
+    /* que salgo una transicion de una linea desde el medio, la linea se desplazaradesde el medio hasta alos extremos */
+    border-bottom: 2px solid #EFA23A;
   }
 `
 const Bars = styled(FaBars)`
@@ -84,6 +86,7 @@ const NavBtn = styled.div`
   display: flex;
   align-items: center;
   margin-right: 24px;
+  font-size: 1.2rem;
 
   @media screen and (max-width: 768px) {
     display: none;
