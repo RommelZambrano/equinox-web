@@ -54,7 +54,6 @@ const NavLink = styled(Link)`
 
   &:hover {
     color: #EFA23A;
-    /* que salgo una transicion de una linea desde el medio, la linea se desplazaradesde el medio hasta alos extremos */
     border-bottom: 2px solid #EFA23A;
   }
 `
@@ -93,7 +92,17 @@ const NavBtn = styled.div`
   }
 `
 const Logo = styled.img`
-  width: 115px; // Ajusta este valor según tus necesidades
+  width: 115px; 
   height: auto;
-  flex-shrink: 0; // Esto evitará que el logo se encoja
+  flex-shrink: 0; 
+
+  &:hover {
+   border-bottom: none;
+
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100px;
+  }
+
 `

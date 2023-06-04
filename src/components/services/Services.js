@@ -92,13 +92,15 @@ const ProductCard = styled.div`
   transition: 0.2s ease;
   align-items: center; 
   justify-content: center; 
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   &:hover {
     transform: scale(1.02);
     transition: 0.2s ease-out;
     cursor: pointer;
     color: #fff;
   }
-`
+`;
+
 const ProductImg = styled(Img)`
   height: 100%;
   max-width: 100%;

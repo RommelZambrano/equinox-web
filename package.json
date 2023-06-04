@@ -11,6 +11,7 @@
     "@fontsource/merriweather": "^4.5.14",
     "@fontsource/montserrat": "^4.5.14",
     "babel-plugin-styled-components": "^2.1.1",
+    "emailjs-com": "^3.2.0",
     "gatsby": "^5.9.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-feed": "^5.9.0",

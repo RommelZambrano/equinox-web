@@ -3,10 +3,7 @@ import styled from "styled-components";
 import yourImage from '../../images/pexels-rdne-stock-project-9034755.jpg';
 import { Button } from "../Button";
 
-const Image = styled.img`
-  width: 50%;
-  height: auto;
-`;
+
 
 // Home Page
 const Home = () => {
@@ -36,38 +33,60 @@ const Home = () => {
 
 export default Home
 
+const Image = styled.img`
+  width: 45%;
+  height: auto;
+  border-radius: 10px;
+  margin-left: 30px;
+`;
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #FFF9C4;
   padding: 20px;
-`
+`;
 
 const Content = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 100%;
   max-width: 1200px;
-`
+  width: 100%;
+  height: 100%;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+`;
 
 const TextContainer = styled.div`
-  width: 45%;
-`
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    width: 45%;
+    text-align: left;
+    margin-bottom: 0;
+  }
+`;
 
 const Slogan = styled.h1`
   font-size: 2em;
   color: #333;
   margin-bottom: 20px;
-`
+`;
 
 const Description = styled.p`
   font-size: 1.2em;
   color: #666;
-  margin: 20px 0 50px 0;`
+  margin-bottom: 40px;
+`;
 
 const CallToAction = styled(Button)`
-  margin-top: 50px;
-`
+  margin-top: 40px;
+`;
