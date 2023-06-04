@@ -31,8 +31,7 @@ function Services() {
         servicesArray.push(
           <ProductCard key={index}>
             <ProductImg
-              src={item.node.img.childImageSharp.fluid.src}
-              
+              src={item.node.img.childImageSharp.fluid.src}             
               fluid={item.node.img.childImageSharp.fluid}
             />
             <ProductInfo>
@@ -48,7 +47,7 @@ function Services() {
 
   return (
     <ProductsContainer>
-      <ProductsHeading>Servicios</ProductsHeading>
+      <ProductsHeading>Nuestos Servicios</ProductsHeading>
       <ProductWrapper>{getServices(data)}</ProductWrapper>
     </ProductsContainer>
   )
@@ -59,14 +58,14 @@ export default Services
 const ProductsContainer = styled.div`
   min-height: 100vh;
   padding: 5rem calc((100vw - 1300px) / 2);
-  background: #150f0f;
+  background: #FFF9C4;
   color: #fff;
 `
 const ProductsHeading = styled.div`
   font-size: clamp(1.2rem, 5vw, 3rem);
   text-align: center;
   margin-bottom: 5rem;
-  color: #fff;
+  color: #000;
 `
 const ProductWrapper = styled.div`
   display: grid;
@@ -89,9 +88,16 @@ const ProductCard = styled.div`
   height: 500px;
   position: relative;
   border-radius: 10px;
+  color: #EFA23A;
   transition: 0.2s ease;
-  align-items: center; /* Agregar alineación centrada */
-  justify-content: center; /* Agregar alineación centrada */
+  align-items: center; 
+  justify-content: center; 
+  &:hover {
+    transform: scale(1.02);
+    transition: 0.2s ease-out;
+    cursor: pointer;
+    color: #fff;
+  }
 `
 const ProductImg = styled(Img)`
   height: 100%;
@@ -111,7 +117,7 @@ const ProductInfo = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 0 2rem;
-  align-items: center; /* Agregar alineación centrada */
+  align-items: center; 
 
   @media screen and (max-width: 280px) {
     padding: 0 1rem;
@@ -127,5 +133,5 @@ const ProductTitle = styled.div`
   font-weight: 500;
   font-size: 2rem;
   margin-left: 0.5rem;
-  text-align: center; /* Agregar alineación centrada */
+  text-align: center; 
 `

@@ -6,6 +6,7 @@ import { Link } from "gatsby";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import "../styles/404.css";
+import { Button } from "../components/Button";
 
 const NotFoundPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
@@ -24,7 +25,7 @@ const NotFoundPage = ({ data, location }) => {
           Acabas de intentar acceder a una ruta que no existe... qué tristeza.
         </p>
         <Link to="/" className="backToHomeBtn">
-          Regresar al inicio
+          <Button primary="true" round="true">Regresar al inicio</Button>
         </Link>
       </div>
     </Layout>
