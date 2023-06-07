@@ -61,7 +61,7 @@ const ProductsContainer = styled.div`
 const ProductsHeading = styled.h2`
   font-size: clamp(1.2rem, 5vw, 3rem);
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 `;
 
 const ProductWrapper = styled.div`
