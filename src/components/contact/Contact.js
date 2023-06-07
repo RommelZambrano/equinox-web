@@ -1,49 +1,106 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Button } from './../Button';
-import emailjs from 'emailjs-com';
+import React, { useState } from "react"
+import styled from "styled-components"
+import { ButtonForm } from "./../Button"
+import { useForm, ValidationError } from "@formspree/react"
+import { Link } from "gatsby"
 
 const ContactPage = () => {
+  const [state, handleSubmit] = useForm(process.env.GATSBY_FORMSPREE_FORM_ID)
+  const [redirectToHome, setRedirectToHome] = useState(false)
 
-  const sendEmail = (event) => {
-    event.preventDefault();
+  if (state.succeeded) {
+    // Redirige a la página principal después de 2 segundos
+    setTimeout(() => setRedirectToHome(true), 2000)
 
-    emailjs.sendForm('service_90yfjcq', 'template_tqcdq7q', event.target, '4R8umsTX70OHtK4bvNJDR')
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
-    event.target.reset();
+    return (
+      <Container>
+        <SuccessMessage>
+          <Title>🎉 ¡Gracias por contactarnos! 🎉</Title>
+          <Text>Nos pondremos en contacto con usted pronto.</Text>
+          <SubmitButton as={Link} to="/" primary="true" round="true">
+            Volver a la página principal
+          </SubmitButton>
+        </SuccessMessage>
+      </Container>
+    )
+  }
+
+  if (redirectToHome) {
+    return <Link to="/" />
   }
 
   return (
     <Container>
       <Wrapper>
-        <Form onSubmit={sendEmail}>
-          <Title>Contáctanos</Title>
-          <Text>Envíanos un mensaje y te responderemos lo más pronto posible.</Text>
+        <Form onSubmit={handleSubmit} method="POST">
+          <Title>Contáctenos</Title>
+          <Text>
+            Dinos tu nombre, correo electrónico y el motivo de tu consulta y te
+            responderemos lo antes posible. ¡Gracias!
+          </Text>
           <FormWrapper>
-            <Input name="name" type="text" placeholder="Nombre" required />
-            <Input name="email" type="email" placeholder="Correo" required />
-            <MessageInput name="message" type="text" placeholder="Mensaje" required />
-            <SubmitButton type="submit" primary="true" round="true">Enviar</SubmitButton>
+            <Input
+              id="name"
+              type="text"
+              placeholder="Nombre"
+              name="name"
+              required
+            />
+            <ValidationError prefix="Name" field="name" errors={state.errors} />
+            <Input
+              id="email"
+              type="email"
+              placeholder="Correo electrónico"
+              name="email"
+              required
+            />
+            <ValidationError
+              prefix="Email"
+              field="email"
+              errors={state.errors}
+            />
+            <Input
+              id="subject"
+              type="text"
+              placeholder="Asunto"
+              name="subject"
+              required
+            />
+            <ValidationError
+              prefix="Subject"
+              field="subject"
+              errors={state.errors}
+            />
+            <MessageInput placeholder="Mensaje" name="message" required />
+            <ValidationError
+              prefix="Message"
+              field="message"
+              errors={state.errors}
+            />
+            <SubmitButton
+              primary="true"
+              type="submit"
+              round="true"
+              disabled={state.submitting}
+            >
+              Enviar
+            </SubmitButton>
           </FormWrapper>
         </Form>
       </Wrapper>
     </Container>
-  );
-};
+  )
+}
 
-export default ContactPage;
+export default ContactPage
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #FFF9C4;
-`;
+  background-color: #fff9c4;
+`
 
 const Wrapper = styled.div`
   display: flex;
@@ -51,35 +108,35 @@ const Wrapper = styled.div`
   width: 500px;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  background-color: #E9ECEF;
-`;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: #e9ecef;
+`
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   color: #fff;
-`;
+`
 
 const Title = styled.h1`
   font-size: 2rem;
   color: #343a40;
   margin-bottom: 10px;
   text-align: center;
-`;
+`
 
 const Text = styled.p`
   font-size: 1rem;
   color: #868e96;
   margin-bottom: 20px;
   text-align: center;
-`;
+`
 
 const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
-`;
+`
 
 const Input = styled.input`
   padding: 10px 15px;
@@ -91,7 +148,7 @@ const Input = styled.input`
     border-color: #495057;
     outline: none;
   }
-`;
+`
 
 const MessageInput = styled.textarea`
   padding: 10px 15px;
@@ -105,9 +162,23 @@ const MessageInput = styled.textarea`
     border-color: #495057;
     outline: none;
   }
-`;
+`
 
-const SubmitButton = styled(Button)`
+const SubmitButton = styled(ButtonForm)`
   align-self: center;
-  margin-top: 10px;
-`;
+  margin-top: 20px;
+`
+
+const SuccessMessage = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 250px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: #e9ecef;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+`

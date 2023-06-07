@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from "react";
+import styled from "styled-components";
+import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 
 function Services() {
   const data = useStaticQuery(graphql`
@@ -22,54 +22,51 @@ function Services() {
         }
       }
     }
-  `)
+  `);
 
   function getServices(data) {
-    const servicesArray = []
+    const servicesArray = [];
     data.allServicesJson.edges.forEach((item, index) => {
       if (item.node.img && item.node.img.childImageSharp)
         servicesArray.push(
           <ProductCard key={index}>
-            <ProductImg
-              src={item.node.img.childImageSharp.fluid.src}             
-              fluid={item.node.img.childImageSharp.fluid}
-            />
-            <ProductInfo>
-              <TextWrap>
-                <ProductTitle>{item.node.title}</ProductTitle>
-              </TextWrap>
-            </ProductInfo>
+            <ProductImg fluid={item.node.img.childImageSharp.fluid} />
+            <ProductContent>
+              <ProductTitle>{item.node.title}</ProductTitle>
+              <ProductDescription>{item.node.alt}</ProductDescription>
+            </ProductContent>
           </ProductCard>
-        )
-    })
-    return servicesArray
+        );
+    });
+    return servicesArray;
   }
 
   return (
     <ProductsContainer>
-      <ProductsHeading>Nuestos Servicios</ProductsHeading>
+      <ProductsHeading>Nuestros Servicios</ProductsHeading>
       <ProductWrapper>{getServices(data)}</ProductWrapper>
     </ProductsContainer>
-  )
+  );
 }
 
-export default Services
+export default Services;
 
 const ProductsContainer = styled.div`
   min-height: 100vh;
   padding: 5rem calc((100vw - 1300px) / 2);
-  background: #FFF9C4;
-  color: #fff;
-`
-const ProductsHeading = styled.div`
+  background: #fff9c4;
+  color: #000;
+`;
+
+const ProductsHeading = styled.h2`
   font-size: clamp(1.2rem, 5vw, 3rem);
   text-align: center;
   margin-bottom: 5rem;
-  color: #000;
-`
+`;
+
 const ProductWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   grid-gap: 10px;
   justify-content: center;
   margin: 0 2rem;
@@ -77,63 +74,88 @@ const ProductWrapper = styled.div`
   @media screen and (max-width: 1200px) {
     justify-content: center;
   }
+`;
 
-  @media screen and (max-width: 868px) {
-    grid-template-columns: 1fr;
-  }
-`
 const ProductCard = styled.div`
-  line-height: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 500px;
-  position: relative;
   border-radius: 10px;
-  color: #EFA23A;
+  overflow: hidden;
   transition: 0.2s ease;
-  align-items: center; 
-  justify-content: center; 
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
   &:hover {
     transform: scale(1.02);
-    transition: 0.2s ease-out;
     cursor: pointer;
-    color: #fff;
+  }
+
+  @media screen and (max-width: 868px) {
+    height: auto;
+    flex-direction: column;
   }
 `;
 
 const ProductImg = styled(Img)`
-  height: 100%;
-  max-width: 100%;
-  position: absolute;
+  width: 50%;
+  height: 80%;
   border-radius: 10px;
   filter: brightness(70%);
   transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  object-fit: cover;
 
-  &:hover {
-    filter: brightness(100%);
+  @media screen and (max-width: 868px) {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 1rem;
   }
-`
+`;
 
-const ProductInfo = styled.div`
+const ProductContent = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0 2rem;
-  align-items: center; 
-
-  @media screen and (max-width: 280px) {
-    padding: 0 1rem;
-  }
-`
-const TextWrap = styled.div`
-  display: flex;
   align-items: center;
-  position: absolute;
-  top: 375px;
-`
-const ProductTitle = styled.div`
-  font-weight: 500;
+  justify-content: center;
+  margin-left: 1rem;
+  border-radius: 10px;
+  width: 60%;
+  height: 80%;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+
+  @media screen and (max-width: 868px) {
+    width: 100%;
+    height: auto;
+
+    margin-left: 0.1rem;
+
+  }
+`;
+
+const ProductTitle = styled.h3`
   font-size: 2rem;
-  margin-left: 0.5rem;
-  text-align: center; 
-`
+  margin-bottom: 1rem;
+  color: #efa23a;
+  transition: 0.2s ease;
+  text-align: center;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+
+  &:hover {
+    color: #fff;
+  }
+`;
+
+const ProductDescription = styled.p`
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: justify;
+  margin-top: 1rem;
+
+  @media screen and (max-width: 868px) {
+    margin-top: 0;
+  }
+`;
