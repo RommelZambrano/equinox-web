@@ -100,8 +100,6 @@ const NavMenu = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100vh;
     position: fixed;
     top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
     left: 0;
@@ -119,7 +117,7 @@ const NavBtn = styled.div`
   font-size: 1.2rem;
 
   @media screen and (max-width: 768px) {
-    justify-content: left;
+    justify-content: left-center;
     margin-left: 10px; // Ajusta este valor a tu gusto
     width: 100%;
     margin-right: 0;
