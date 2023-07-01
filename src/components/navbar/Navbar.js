@@ -100,6 +100,8 @@ const NavMenu = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: ${({ isOpen }) => (isOpen ? "100vh" : "0")};
     position: fixed;
     top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
     left: 0;
