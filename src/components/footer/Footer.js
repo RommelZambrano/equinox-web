@@ -70,6 +70,12 @@ const FooterContainer = styled.footer`
   padding: 2rem;
   gap: 1rem;
   flex-wrap: wrap;
+
+  @media screen and (max-width: 820px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 const FooterSection = styled.div`
@@ -77,6 +83,12 @@ const FooterSection = styled.div`
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  margin-bottom: 1rem;
+
+  @media screen and (max-width: 820px) {
+    align-items: center;
+    text-align: center;
+  }
 `
 
 const FooterTitle = styled.h2`
@@ -87,7 +99,7 @@ const FooterTitle = styled.h2`
 
 const FooterDesc = styled.p`
   margin-bottom: 2rem;
-  max-width: 400px; /* Agrega el ancho máximo deseado */
+  max-width: 400px;
 
 `
 

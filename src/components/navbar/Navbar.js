@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { FaBars } from "react-icons/fa"
@@ -7,17 +7,20 @@ import { Button } from "../Button"
 import logo from "../../images/equinox-logo.png"
 
 const Navbar = ({ pathname }) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleMenu = () => setIsOpen(!isOpen)
+
   return (
     <Nav pathname={pathname}>
-      <NavLink to="/">
+      <LogoLink to="/">
         <Logo src={logo} alt="Equinox" />
-      </NavLink>
-      <Bars />
-      {/* <NavMenu> */}
-      <NavMenu>
+      </LogoLink>
+      <Bars onClick={toggleMenu} />
+      <NavMenu isOpen={isOpen}>
         {pages.map((item, index) => (
           <NavLink to={item.link} key={index}>
-            {item.title}
+            <NavItem>{item.title}</NavItem>
           </NavLink>
         ))}
       </NavMenu>
@@ -33,7 +36,8 @@ const Navbar = ({ pathname }) => {
 export default Navbar
 
 const Nav = styled.nav`
-  background: ${({ pathname }) => (pathname === "/" ? "transparent" : "rgba(0, 0, 0, 0.7)")};
+  background: ${({ pathname }) =>
+    pathname === "/" ? "transparent" : "rgba(0, 0, 0, 0.7)"};
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -43,20 +47,32 @@ const Nav = styled.nav`
   position: relative;
 `
 
-const NavLink = styled(Link)`
-  color: #fff;
+const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0 1rem;
-  height: 100%auto;
   cursor: pointer;
+}
+`
+
+const NavLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+`
+
+const NavItem = styled.span`
+  color: #fff;
 
   &:hover {
-    color: #EFA23A;
-    border-bottom: 2px solid #EFA23A;
+    color: #efa23a;
+    border-bottom: 2px solid #efa23a;
   }
 `
+
 const Bars = styled(FaBars)`
   display: none;
   color: #fff;
@@ -69,6 +85,7 @@ const Bars = styled(FaBars)`
     transform: translate(-100%, 75%);
     font-size: 1.8rem;
     cursor: pointer;
+    order: 2;
   }
 `
 const NavMenu = styled.div`
@@ -76,11 +93,25 @@ const NavMenu = styled.div`
   align-items: center;
   margin-right: -48px;
   font-size: 1.2rem;
+  transition: 0.5s;
 
   @media screen and (max-width: 768px) {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+    left: 0;
+    opacity: 0.95;
+    background: #101522;
+    transition: 0.5s;
+    order: 2;
   }
 `
+
 const NavBtn = styled.div`
   display: flex;
   align-items: center;
@@ -88,21 +119,25 @@ const NavBtn = styled.div`
   font-size: 1.2rem;
 
   @media screen and (max-width: 768px) {
-    display: none;
+    justify-content: left;
+    margin-left: 10px; // Ajusta este valor a tu gusto
+    width: 100%;
+    margin-right: 0;
   }
 `
+
 const Logo = styled.img`
-  width: 115px; 
+  width: 115px;
   height: auto;
-  flex-shrink: 0; 
+  flex-shrink: 0;
 
   &:hover {
-   border-bottom: none;
-
+    border-bottom: none;
   }
 
   @media screen and (max-width: 768px) {
     width: 100px;
+    height: auto;
+    flex-shrink: 0;
   }
-
 `

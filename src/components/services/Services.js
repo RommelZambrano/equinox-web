@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import React from "react"
+import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 function Services() {
   const data = useStaticQuery(graphql`
@@ -22,10 +22,10 @@ function Services() {
         }
       }
     }
-  `);
+  `)
 
   function getServices(data) {
-    const servicesArray = [];
+    const servicesArray = []
     data.allServicesJson.edges.forEach((item, index) => {
       if (item.node.img && item.node.img.childImageSharp)
         servicesArray.push(
@@ -36,9 +36,9 @@ function Services() {
               <ProductDescription>{item.node.alt}</ProductDescription>
             </ProductContent>
           </ProductCard>
-        );
-    });
-    return servicesArray;
+        )
+    })
+    return servicesArray
   }
 
   return (
@@ -46,22 +46,26 @@ function Services() {
       <ProductsHeading>Nuestros Servicios</ProductsHeading>
       <ProductWrapper>{getServices(data)}</ProductWrapper>
     </ProductsContainer>
-  );
+  )
 }
 
-export default Services;
+export default Services
 
 const ProductsContainer = styled.div`
   min-height: 100vh;
   padding: 5rem calc((100vw - 1300px) / 2);
   color: #000;
-`;
+`
 
 const ProductsHeading = styled.h2`
   font-size: clamp(1.2rem, 5vw, 3rem);
   text-align: center;
   margin-bottom: 3rem;
-`;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2rem;
+  }
+`
 
 const ProductWrapper = styled.div`
   display: grid;
@@ -73,7 +77,7 @@ const ProductWrapper = styled.div`
   @media screen and (max-width: 1200px) {
     justify-content: center;
   }
-`;
+`
 
 const ProductCard = styled.div`
   position: relative;
@@ -95,7 +99,7 @@ const ProductCard = styled.div`
     height: auto;
     flex-direction: column;
   }
-`;
+`
 
 const ProductImg = styled(Img)`
   width: 50%;
@@ -110,7 +114,7 @@ const ProductImg = styled(Img)`
     height: 250px;
     margin-bottom: 1rem;
   }
-`;
+`
 
 const ProductContent = styled.div`
   display: flex;
@@ -128,11 +132,9 @@ const ProductContent = styled.div`
   @media screen and (max-width: 868px) {
     width: 100%;
     height: auto;
-
     margin-left: 0.1rem;
-
   }
-`;
+`
 
 const ProductTitle = styled.h3`
   font-size: 2rem;
@@ -146,15 +148,15 @@ const ProductTitle = styled.h3`
   &:hover {
     color: #fff;
   }
-`;
+`
 
 const ProductDescription = styled.p`
-  font-size: 1rem;
+  font-size: 1.2rem;
+  color: #ffffff;
   line-height: 1.5;
   text-align: justify;
-  margin-top: 1rem;
 
   @media screen and (max-width: 868px) {
     margin-top: 0;
   }
-`;
+`

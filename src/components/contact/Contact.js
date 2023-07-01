@@ -99,6 +99,10 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+
+  @media screen and (max-width: 768px) {
+    padding: 100px 0;
+  }
 `
 
 const Wrapper = styled.div`
@@ -110,12 +114,20 @@ const Wrapper = styled.div`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   background-color: #e9ecef;
+
+  @media screen and (max-width: 768px) {
+    width: 350px;
+  }
 `
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
   color: #fff;
+
+  @media screen and (max-width: 768px) {
+    width: 300px;
+  }
 `
 
 const Title = styled.h1`
@@ -123,6 +135,10 @@ const Title = styled.h1`
   color: #343a40;
   margin-bottom: 10px;
   text-align: center;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `
 
 const Text = styled.p`
@@ -130,11 +146,19 @@ const Text = styled.p`
   color: #868e96;
   margin-bottom: 20px;
   text-align: center;
+
+  @media screen and (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `
 
 const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 768px) {
+    width: 300px;
+  }
 `
 
 const Input = styled.input`
@@ -146,6 +170,10 @@ const Input = styled.input`
   &:focus {
     border-color: #495057;
     outline: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 300px;
   }
 `
 
@@ -161,11 +189,41 @@ const MessageInput = styled.textarea`
     border-color: #495057;
     outline: none;
   }
+
+  @media screen and (max-width: 768px) {
+    height: 100px;
+  }
 `
 
 const SubmitButton = styled(ButtonForm)`
   align-self: center;
   margin-top: 20px;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+
+  &:disabled {
+    background-color: #adb5bd;
+    color: #fff;
+    cursor: not-allowed;
+  }
+
+  &:disabled:hover {
+    transform: translateY(0);
+  }
+
+  &:disabled:active {
+    transform: translateY(0);
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 300px;
+  }
 `
 
 const SuccessMessage = styled.div`
@@ -180,4 +238,8 @@ const SuccessMessage = styled.div`
   text-align: center;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 768px) {
+    width: 300px;
+  }
 `
