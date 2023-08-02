@@ -1,29 +1,11 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { FaBars, FaFacebook, FaLinkedin, FaMapMarked, FaMapMarkedAlt, FaTwitter } from "react-icons/fa"
 import { pages } from "../../data/MenuData"
 import { Button } from "../Button"
 import logo from "../../images/equinox-logo.png"
-
-const TopBar = styled.div`
-  background: #f8f9fa;
-  height: 30px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0 1rem;
-`;
-
-const TopBarLink = styled.a`
-  color: #333;
-  margin-left: 1rem;
-  text-decoration: none;
-
-  &:hover {
-    color: #007bff;
-  }
-`;
+import { FaBars } from "react-icons/fa"
+import Topbar from "./Topbar"
 
 const Nav = styled.nav`
   background: ${({ pathname }) =>
@@ -35,14 +17,14 @@ const Nav = styled.nav`
   padding: 0.5rem calc((100vw - 1300px) / 2);
   z-index: 100;
   position: relative;
-`;
+`
 
 const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
   cursor: pointer;
-`;
+`
 
 const NavLink = styled(Link)`
   display: flex;
@@ -51,7 +33,7 @@ const NavLink = styled(Link)`
   height: 100%;
   cursor: pointer;
   text-decoration: none;
-`;
+`
 
 const NavItem = styled.span`
   color: #fff;
@@ -60,7 +42,7 @@ const NavItem = styled.span`
     color: #efa23a;
     border-bottom: 2px solid #efa23a;
   }
-`;
+`
 
 const Bars = styled(FaBars)`
   display: none;
@@ -76,7 +58,7 @@ const Bars = styled(FaBars)`
     cursor: pointer;
     order: 2;
   }
-`;
+`
 
 const NavMenu = styled.div`
   display: flex;
@@ -100,7 +82,7 @@ const NavMenu = styled.div`
     transition: 0.5s;
     order: 2;
   }
-`;
+`
 
 const NavBtn = styled.div`
   display: flex;
@@ -114,7 +96,7 @@ const NavBtn = styled.div`
     width: 100%;
     margin-right: 0;
   }
-`;
+`
 
 const Logo = styled.img`
   width: 115px;
@@ -130,41 +112,16 @@ const Logo = styled.img`
     height: auto;
     flex-shrink: 0;
   }
-`;
-
-const SocialIconLink = styled.a`
-  color: #333;
-  margin-left: 1rem;
-  text-decoration: none;
-
-  &:hover {
-    color: #007bff;
-  }
-`;
+`
 
 const Navbar = ({ pathname }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => setIsOpen(!isOpen)
-    
+
   return (
     <>
-       <TopBar>
-        <SocialIconLink href="https://twitter.com/RommelZambrano">
-          <FontAwesomeIcon icon={FaTwitter} size="lg" />
-        </SocialIconLink>
-        <SocialIconLink href="https://www.facebook.com/">
-          <FontAwesomeIcon icon={FaFacebook} size="lg" />
-        </SocialIconLink>
-        <SocialIconLink href="https://www.linkedin.com/">
-          <FontAwesomeIcon icon={FaLinkedin} size="lg" />
-        </SocialIconLink>
-        <p>asistente1@equinox-services.com</p>
-        <div>
-          <FontAwesomeIcon icon={FaMapMarkerAlt} />
-          <span>Dirección</span>
-        </div>
-      </TopBar>
+    <Topbar />
       <Nav pathname={pathname}>
         <LogoLink to="/">
           <Logo src={logo} alt="Equinox" />
@@ -188,4 +145,3 @@ const Navbar = ({ pathname }) => {
 }
 
 export default Navbar
- 
