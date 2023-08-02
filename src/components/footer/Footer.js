@@ -11,10 +11,6 @@ const Footer = () => {
         <FooterTitle>Equinox Services</FooterTitle>
         <FooterDesc>
           Equinox Services es una empresa de servicios contables, tributarios y financieros.
-        <br />
-        <br />
-                  Quito - Ecuador  
-          Av. 6 de diciembre (N37-185) y el comercio. Edificio Mena Salazar - piso 8.
         </FooterDesc>
       </FooterSection>
       <FooterSection>
