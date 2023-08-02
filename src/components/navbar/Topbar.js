@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { FaBars, FaFacebook, FaLinkedin, FaMapMarked, FaMapMarkedAlt, FaTwitter } from "react-icons/fa"
+import { FaBars } from "react-icons/fa"
 import { pages } from "../../data/MenuData"
 import { Button } from "../Button"
 import logo from "../../images/equinox-logo.png"
@@ -132,16 +132,6 @@ const Logo = styled.img`
   }
 `;
 
-const SocialIconLink = styled.a`
-  color: #333;
-  margin-left: 1rem;
-  text-decoration: none;
-
-  &:hover {
-    color: #007bff;
-  }
-`;
-
 const Navbar = ({ pathname }) => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -149,21 +139,9 @@ const Navbar = ({ pathname }) => {
     
   return (
     <>
-       <TopBar>
-        <SocialIconLink href="https://twitter.com/RommelZambrano">
-          <FontAwesomeIcon icon={FaTwitter} size="lg" />
-        </SocialIconLink>
-        <SocialIconLink href="https://www.facebook.com/">
-          <FontAwesomeIcon icon={FaFacebook} size="lg" />
-        </SocialIconLink>
-        <SocialIconLink href="https://www.linkedin.com/">
-          <FontAwesomeIcon icon={FaLinkedin} size="lg" />
-        </SocialIconLink>
-        <p>asistente1@equinox-services.com</p>
-        <div>
-          <FontAwesomeIcon icon={FaMapMarkerAlt} />
-          <span>Dirección</span>
-        </div>
+      <TopBar>
+        <TopBarLink href="https://twitter.com/RommelZambrano">Twitter</TopBarLink>
+        <TopBarLink href="mailto:info@equinox-services.com">Contacto</TopBarLink>
       </TopBar>
       <Nav pathname={pathname}>
         <LogoLink to="/">

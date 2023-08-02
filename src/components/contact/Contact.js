@@ -87,7 +87,7 @@ const ContactPage = () => {
             </SubmitButton>
           </FormWrapper>
         </Form>
-        <br />
+          <br />
         <Text>
           O visitanos en nuestras oficinas ubicadas en Av. 6 de diciembre (N37-185) y el comercio. Edificio Mena Salazar - piso 8.
         </Text>
