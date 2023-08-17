@@ -27,16 +27,20 @@ function Services() {
   function getServices(data) {
     const servicesArray = []
     data.allServicesJson.edges.forEach((item, index) => {
-      if (item.node.img && item.node.img.childImageSharp)
+      if (item.node.img && item.node.img.childImageSharp) {
         servicesArray.push(
           <ProductCard key={index}>
             <ProductImg fluid={item.node.img.childImageSharp.fluid} />
             <ProductContent>
               <ProductTitle>{item.node.title}</ProductTitle>
-              <ProductDescription>{item.node.alt}</ProductDescription>
+              <ProductDescription
+                className="service-description"
+                dangerouslySetInnerHTML={{ __html: item.node.alt }}
+              />
             </ProductContent>
           </ProductCard>
         )
+      }
     })
     return servicesArray
   }
@@ -85,7 +89,7 @@ const ProductCard = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 500px;
+  height: 750px;
   border-radius: 10px;
   overflow: hidden;
   transition: 0.2s ease;
@@ -125,7 +129,7 @@ const ProductContent = styled.div`
   border-radius: 10px;
   width: 60%;
   height: 80%;
-  padding: 1rem;
+  padding: 2rem;
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
 
@@ -151,10 +155,24 @@ const ProductTitle = styled.h3`
 `
 
 const ProductDescription = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #ffffff;
   line-height: 1.5;
   text-align: justify;
+  white-space: pre-line;
+
+  ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 1.5em;
+  }
+
+  ul li::before {
+    content: "-";
+    display: inline-block;
+    width: 1em;
+    margin-left: -1.5em;
+  }
 
   @media screen and (max-width: 868px) {
     margin-top: 0;

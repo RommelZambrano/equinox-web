@@ -27,16 +27,28 @@ function AboutUs() {
   function getAbout(data) {
     const aboutArray = []
     data.allAboutJson.edges.forEach((item, index) => {
-      if (item.node.img && item.node.img.childImageSharp)
+      if (item.node.img && item.node.img.childImageSharp) {
+        const isValuesCard = item.node.title === "Valores"
         aboutArray.push(
-          <AboutCard key={index}>
+          <AboutCard key={index} isValuesCard={isValuesCard}>
             <AboutImg fluid={item.node.img.childImageSharp.fluid} />
             <AboutContent>
               <AboutTitle>{item.node.title}</AboutTitle>
-              <AboutDescription>{item.node.alt}</AboutDescription>
+              {isValuesCard ? (
+                <AboutDescription>
+                  <ul>
+                    {item.node.alt.split("\n").map((value, index) => (
+                      <li key={index}>{value.trim()}</li>
+                    ))}
+                  </ul>
+                </AboutDescription>
+              ) : (
+                <AboutDescription>{item.node.alt}</AboutDescription>
+              )}
             </AboutContent>
           </AboutCard>
         )
+      }
     })
     return aboutArray
   }
@@ -95,9 +107,23 @@ const AboutCard = styled.div`
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
 
-   @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1200px) {
     width: 90%;
   }
+  ${({ isValuesCard }) =>
+    isValuesCard &&
+    `
+  ul {
+    list-style-type: disc; /* Tipo de viñeta */
+    padding-left: 1em; /* Espaciado a la izquierda para las viñetas */
+  }
+  li {
+    font-size: 1rem;
+    color: #ffffff;
+    line-height: 1.5;
+    text-align: justify;
+  }
+`}
 `
 
 const AboutImg = styled(Img)`
@@ -111,9 +137,9 @@ const AboutImg = styled(Img)`
 `
 
 const AboutContent = styled.div`
-  padding: 30px;
+  padding: 25px;
   overflow: auto;
-  height: 350px;
+  height: 480px;
   transition: all 0.3s ease;
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
@@ -144,7 +170,7 @@ const AboutTitle = styled.h3`
 `
 
 const AboutDescription = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #ffffff;
   line-height: 1.5;
   text-align: justify;

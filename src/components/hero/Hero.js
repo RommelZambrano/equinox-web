@@ -11,7 +11,7 @@ const Hero = () => {
       </HeroBg>
       <HeroContent>
         <HeroItems>
-          <HeroH1></HeroH1>
+          <HeroH1></HeroH1  >
           <HeroP></HeroP>
           <ButtonWithMargin
             primary="true"
