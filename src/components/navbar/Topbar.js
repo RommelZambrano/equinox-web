@@ -11,13 +11,19 @@ import {
 
 const TopBar = styled.div`
   background: #000;
-  height: 35px;
+  height: 30px; 
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
   flex-direction: row-reverse;
   color: #fff;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+    height: 100px;
+  }
 `
 
 const SocialIconLink = styled.a`
@@ -28,21 +34,37 @@ const SocialIconLink = styled.a`
   &:hover {
     color: #007bff;
   }
+
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+  }
 `
 
 const TopbarText = styled.p`
-  color: #EFA23A;
+  color: #efa23a;
+
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+  }
 `
 
 const TopbarAddress = styled.div`
-  color: #EFA23A;
+  color: #efa23a;
+
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+  }
 `
 const TopbarLink = styled.a`
-  color: #EFA23A;
+  color: #efa23a;
   text-decoration: none;
 
   &:hover {
     color: #007bff;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
   }
 `
 
