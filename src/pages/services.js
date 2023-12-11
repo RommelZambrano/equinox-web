@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../components/layout";
-import ContactForm from "../components/services/Services";
+import Services from "../components/services/Services";
+import Clients from "../components/services/Clients";
 import Seo from "../components/seo";
 
 const ContactPage = () => {
@@ -10,7 +11,7 @@ const ContactPage = () => {
         title="Servicios"
         description="Nuestros servicios son los mejores."
       />
-      <ContactForm />
+      <Services />
     </Layout>
   );
 };

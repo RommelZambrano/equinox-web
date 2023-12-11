@@ -7,18 +7,14 @@ export const pages = [
     title: "Nosotros",
     link: "/about",
   },
-  // {
-  //   title: "Blog",
-  //   link: "/blog",
-  // },
-  // {
-  //   title: "Contacto",
-  //   link: "/contact",
-  // },
   {
     title: "Servicios",
     link: "/services",
-  },
+  }
+  // {
+  //   title: "Clientes",
+  //   link: "/clients"
+  // }
 ]
 
 
