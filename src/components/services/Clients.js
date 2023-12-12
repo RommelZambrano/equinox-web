@@ -6,7 +6,7 @@ import Img from "gatsby-image"
 // Componente de estilo para el contenedor de los clientes
 const ClientsSection = styled.section`
   padding: 20px 0px 100px;
-  background-color: #f8f8f8; // O el color que prefiera para el fondo
+  background-color: #ffffff; // O el color que prefiera para el fondo
 `
 
 const ClientsContainer = styled.div`
