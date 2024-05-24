@@ -6,11 +6,11 @@ import { Link } from "gatsby"
 
 const ContactPage = () => {
   const [state, handleSubmit] = useForm(process.env.GATSBY_FORMSPREE_FORM_ID)
-  const [redirectToHome, setRedirectToHome] = useState(false)
+  const [redirectToHome, setRedirectToHome] = useState(false)w
 
   if (state.succeeded) {
     // Redirige a la página principal después de 2 segundos
-    setTimeout(() => setRedirectToHome(true), 2000)
+    setTimeout(() => setRedirectToHome(true), 2000) 
 
     return (
       <Container>
@@ -89,7 +89,7 @@ const ContactPage = () => {
         </Form>
           <br />
         <Text>
-          O visitanos en nuestras oficinas ubicadas en calle N40J #E14-247 y los Motilones. Urb. Gabriela Marina. sector redondel del ciclista
+          O visitanos en nuestras oficinas ubicadas en la Calle N40J #E14-247 y los Motilones. Urb. Gabriela Marina. sector redondel del ciclista
         </Text>
       </Wrapper>
     </Container>
@@ -102,7 +102,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 115vh;
 
   @media screen and (max-width: 768px) {
     padding: 100px 0;
