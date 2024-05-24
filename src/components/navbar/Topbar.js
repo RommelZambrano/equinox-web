@@ -106,7 +106,7 @@ const Topbar = () => {
         </SocialIconLink>
       </SocialIcons>
       <TopbarText>
-        <FaEnvelope /> asistente1@equinox-services.com
+        <FaEnvelope size="1em" /> asistente1@equinox-services.com
       </TopbarText>
       <TopbarAddress>
         <FaMapMarkedAlt size="1em" />
