@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 
 const ContactPage = () => {
   const [state, handleSubmit] = useForm(process.env.GATSBY_FORMSPREE_FORM_ID)
-  const [redirectToHome, setRedirectToHome] = useState(false)w
+  const [redirectToHome, setRedirectToHome] = useState(false)
 
   if (state.succeeded) {
     // Redirige a la página principal después de 2 segundos
