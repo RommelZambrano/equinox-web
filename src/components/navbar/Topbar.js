@@ -11,17 +11,15 @@ import {
 
 const TopBar = styled.div`
   background: #000;
-  height: 40px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   color: #fff;
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
     text-align: center;
-    height: auto;
     padding: 1rem 0;
   }
 `;
