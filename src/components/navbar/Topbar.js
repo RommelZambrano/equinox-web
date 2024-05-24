@@ -88,7 +88,7 @@ const Topbar = () => {
       </TopbarText>
       <TopbarAddress>
         <FaMapMarkedAlt size="1em" />
-        <span> Av. 6 de Diciembre, N37-185, Edif. Mena Salazar, Piso 8</span>
+        <span>Calle N40J #E14-247 y los Motilones. Urb. Gabriela Marina. sector redondel del ciclista</span>
       </TopbarAddress>
       <TopbarLink href="https://sdmconsultores.com.co/" target="_blank">
         También estamos ubicados en Colombia <FaExternalLinkAlt />
