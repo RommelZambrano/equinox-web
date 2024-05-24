@@ -89,7 +89,7 @@ const ContactPage = () => {
         </Form>
           <br />
         <Text>
-          O visitanos en nuestras oficinas ubicadas en Av. 6 de diciembre (N37-185) y el comercio. Edificio Mena Salazar - piso 8.
+          O visitanos en nuestras oficinas ubicadas en calle N40J #E14-247 y los Motilones. Urb. Gabriela Marina. sector redondel del ciclista
         </Text>
       </Wrapper>
     </Container>
