@@ -1,5 +1,6 @@
 import * as React from "react"
 import Navbar from "./navbar/Navbar"
+import { SpeedInsights } from "@vercel/speed-insights/react";
 // import Topbar from "./navbar/Topbar"
 import Footer from "./footer/Footer"
 import GlobalStyle from "../styles/GlobalsStyles"
@@ -12,7 +13,7 @@ const Layout = ({ children }) => {
         {/* <Topbar /> */}
         <Navbar />
       </header>
-      <main>{children}</main>
+      <main>{children}<SpeedInsights /></main>
       <footer>
         {" "}
         <Footer />
